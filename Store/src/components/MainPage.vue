@@ -2,17 +2,24 @@
   <div>
     <NavBar />
     <MainSection/>
+    <CategorySection/>
+    <ProductSection/>
   </div>
 </template>
 
 <script>
 import NavBar from "./NavBar";
 import MainSection from './MainSection';
+import CategorySection from './CategorySection';
+import ProductSection from './ProductSection'
+
 export default {
   name: "MainPage",
   components: {
     NavBar,
-    MainSection
+    MainSection,
+    CategorySection,
+    ProductSection
   },
 };
 </script>

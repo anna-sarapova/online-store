@@ -33,9 +33,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import url('../assets/css/GlobalStyles.scss');
+
 .nav-commponent {
   width: 100%;
   padding: 0 100px;
+  margin-bottom: 50px;
   display: flex;
   align-items: center;
   background-color: #ffffff;
@@ -125,6 +128,7 @@ export default {
         padding-top: 20px;
         padding-bottom: 10px;
         padding-left: 10px;
+        outline: none;
 
         &:focus,
         :hover {
