@@ -1,32 +1,36 @@
 <div class="form">
-    <form [formGroup]="form" class="example-form" (ngSubmit)="onAuth(form.value.email ,form.value.password)">
-      <div class="row no-gutters justify-content-center">
-        <h2>Welcome <span>Back!</span></h2>
-        <p>To invoicing system</p>
-        <mat-form-field class="example-full-width">
-          <i class="fas fa-user icon"></i>
-          <input matInput type="text" placeholder="Email" formControlName="email"/>
-          <mat-error>
-            <span *ngIf="form.controls.email.errors?.required">Is required</span>
-            <span *ngIf="form.controls.email.errors?.email">Email is not valid</span>
-          </mat-error>
-        </mat-form-field>
-        <span style="color: red" *ngIf="emailError">Email is incorrect</span>
-  
-      </div>
-  
-      <div class="row no no-gutters justify-content-center">
-        <mat-form-field class="example-full-width">
-          <i class="fas fa-lock icon"></i>
-          <input matInput type="password" placeholder="Password" formControlName="password"/>
-          <mat-error>
-            <span *ngIf="form.controls.password.errors?.required">Is required</span>
-          </mat-error>
-        </mat-form-field>
-        <span style="color: red" *ngIf="passwordError">Password is incorrect</span>
-      </div>
-      <div class="row justify-content-center no-gutters">
-        <button class="button">Login</button>
-      </div>
+    <form class="w-50" [formGroup]="registerFormGroup" (ngSubmit)="onRegister()">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control"
+                   [class.is-invalid]="email.invalid && email.touched"
+                   placeholder="Enter an email address" id="exampleInputEmail1" formControlName="email"
+                   aria-describedby="emailHelp">
+
+            <div *ngIf="(email.invalid && email.touched) || email.dirty">
+                <small *ngIf="email.errors?.required"
+                       class="text-danger">Email is required</small>
+                <small *ngIf="email.errors?.email"
+                       class="text-danger">Please provide a valid email</small>
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control"
+                   [class.is-invalid]="password.invalid && password.touched"
+                   placeholder="Enter a password" formControlName="password" id="exampleInputPassword1">
+
+            <div *ngIf="(password.invalid && password.touched) || password.dirty">
+                <small *ngIf="password.errors?.required"
+                       class="text-danger">Password is required</small>
+                <small *ngIf="password.errors?.minlength"
+                       class="text-danger">Password should have min 8 characters</small>
+
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
     </form>
-  </div>
+</div>
