@@ -15,4 +15,8 @@ export class AuthService {
     public register(argument: object): Observable<any> {
         return this.httpClient.post<any>(this.baseUrl + 'api/auth/Register', argument);
     }
+
+    public login(argument: object): Observable<any> {
+        return this.httpClient.post<any>(this.baseUrl + 'api/auth/Login', argument);
+    }
 }
