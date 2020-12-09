@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { AuthService } from 'src/app/core/services/auth.service';
 import {LinkModel} from "../../../core/models/link.model";
 import {SpeechService} from "../../../core/services/speech.service";
 
@@ -10,7 +11,7 @@ import {SpeechService} from "../../../core/services/speech.service";
 export class HeaderComponent extends SpeechService implements OnInit {
     public links: LinkModel[];
 
-    constructor() {
+    constructor(public authService: AuthService) {
         super();
     }
 
@@ -26,5 +27,9 @@ export class HeaderComponent extends SpeechService implements OnInit {
             {name: 'Contacts'}
         ];
     }
-
+    
+    public onLogOut(): void {
+        this.authService.setLocalUserData = null;
+        localStorage.clear();
+      }
 }

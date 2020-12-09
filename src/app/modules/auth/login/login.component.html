@@ -1,1 +1,36 @@
-<p>login works!</p>
+<div class="form">
+    <form class="w-50" [formGroup]="loginFormGroup" (ngSubmit)="onLogin()">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control"
+                   [class.is-invalid]="email.invalid && email.touched"
+                   placeholder="Enter an email address" id="exampleInputEmail1" formControlName="email"
+                   aria-describedby="emailHelp">
+
+            <div *ngIf="(email.invalid && email.touched) || email.dirty">
+                <small *ngIf="email.errors?.required"
+                       class="text-danger">Email is required</small>
+                <small *ngIf="email.errors?.email"
+                       class="text-danger">Please provide a valid email</small>
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control"
+                   [class.is-invalid]="password.invalid && password.touched"
+                   placeholder="Enter a password" formControlName="password" id="exampleInputPassword1">
+
+            <div *ngIf="(password.invalid && password.touched) || password.dirty">
+                <small *ngIf="password.errors?.required"
+                       class="text-danger">Password is required</small>
+                <small *ngIf="password.errors?.minlength"
+                       class="text-danger">Password should have min 8 characters</small>
+
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+</div>

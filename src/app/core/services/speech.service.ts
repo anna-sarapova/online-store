@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable({
     providedIn: 'root'
@@ -9,7 +9,7 @@ export class SpeechService {
     }
 
     private static textToAudio(text: string): void {
-        let speech = new SpeechSynthesisUtterance();
+        const speech = new SpeechSynthesisUtterance();
         speech.lang = "en-US";
         speech.text = text;
         speech.volume = 1;

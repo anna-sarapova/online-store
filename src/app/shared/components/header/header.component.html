@@ -27,8 +27,17 @@
                         <img routerLink="./cart" src="./assets/images/bag.svg" alt="bag">
                         <span (mouseover)="textElements($event)">Cart</span>(2)
                     </div>
+                    <div *ngIf="!(authService.IsAuthenticated() | async)">
+                        <a (mouseover)="textElements($event)" routerLink="../auth/login">SignIn</a>
+                        <a (mouseover)="textElements($event)" routerLink="../auth/register">SignUp</a>
+                    </div>
+                    <div *ngIf="(authService.IsAuthenticated() | async)">
+                        <p (mouseover)="textElements($event)" *ngIf="(authService.getLocalUserData | async) as userData">{{userData.email}}</p>
+                        <button (mouseover)="textElements($event)" (click)="onLogOut()">Log Out</button>
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
 </header>
