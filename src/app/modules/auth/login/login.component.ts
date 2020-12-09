@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AuthService } from "../../../core/services/auth.service";
 import { Subscription } from "rxjs";
+import { Route } from '@angular/compiler/src/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +16,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   private loginSubscription: Subscription;
 
   constructor(private formBuilder: FormBuilder,
-              private authService: AuthService) {
+    private authService: AuthService,
+    private router: Router) {
     this.createLoginForm();
   }
 
@@ -30,7 +33,9 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   public onLogin(): void {
     this.loginSubscription = this.authService.login(this.loginFormGroup.value).subscribe(result => {
-      console.log(result);
+      localStorage.setItem('user', JSON.stringify(result));
+      this.authService.setLocalUserData = result;
+      this.router.navigate(['/home']);
     }, error => console.log(error));
   }
 
