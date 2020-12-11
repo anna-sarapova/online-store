@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth.service';
-import {LinkModel} from "../../../core/models/link.model";
-import {SpeechService} from "../../../core/services/speech.service";
+import { LinkModel } from "../../../core/models/link.model";
+import { SpeechService } from "../../../core/services/speech.service";
 
 @Component({
     selector: 'app-header',
@@ -21,15 +21,15 @@ export class HeaderComponent extends SpeechService implements OnInit {
 
     private initLinks(): void {
         this.links = [
-            {name: 'Home', route: '/home'},
-            {name: 'Categories'},
-            {name: 'Offers'},
-            {name: 'Contacts'}
+            { name: 'Home', route: '/home' },
+            { name: 'Categories' },
+            { name: 'Offers' },
+            { name: 'Contacts' }
         ];
     }
-    
+
     public onLogOut(): void {
         this.authService.setLocalUserData = null;
         localStorage.clear();
-      }
+    }
 }
