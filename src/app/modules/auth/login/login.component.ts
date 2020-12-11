@@ -50,6 +50,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   get password(): AbstractControl {
-    return this.loginFormGroup.get('password')
+    return this.loginFormGroup.get('password');
   }
 }
