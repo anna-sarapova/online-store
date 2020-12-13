@@ -4,4 +4,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: gray;
+
+  .label{
+    font-weight: 700;
+  }
+
+
+  .form-group{
+    width: 50%;
+    margin-left: 250px;
+    
+  }
+
+  .btn-primary
+  {
+    width: 20%;
+    margin-left: 400px;
+  }
+
+  .par{
+    align-self: center;
+    margin-bottom: 60px;
+    margin-left: 70px;
+  }
+
 }
