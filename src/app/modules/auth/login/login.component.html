@@ -1,7 +1,8 @@
 <div class="form">
     <form class="w-50" [formGroup]="loginFormGroup" (ngSubmit)="onLogin()">
         <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
+            <h1 class="par">LOGIN</h1>
+            <label for="exampleInputEmail1" class="label">Email address</label>
             <input type="email" class="form-control"
                    [class.is-invalid]="email.invalid && email.touched"
                    placeholder="Enter an email address" id="exampleInputEmail1" formControlName="email"
@@ -18,7 +19,7 @@
 
 
         <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
+            <label for="exampleInputPassword1" class="label">Password</label>
             <input type="password" class="form-control"
                    [class.is-invalid]="password.invalid && password.touched"
                    placeholder="Enter a password" formControlName="password" id="exampleInputPassword1">
@@ -31,6 +32,6 @@
 
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary">Sign in</button>
     </form>
 </div>
