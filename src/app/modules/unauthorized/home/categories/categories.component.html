@@ -1,1 +1,9 @@
-<p>categories works!</p>
+<div class="container">
+  <span class="category-header">Categories</span>
+  <div class="category-content">
+    <a *ngFor="let category of categories" (mouseover)="textElements($event)">{{
+      category.name
+    }}</a>
+  </div>
+</div>
+>
