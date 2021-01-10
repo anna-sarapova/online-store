@@ -16,11 +16,11 @@ export class AuthService {
     }
 
     public register(argument: object): Observable<any> {
-        return this.httpClient.post<any>(this.baseUrl + 'api/auth/Register', argument);
+        return this.httpClient.post<any>(this.baseUrl + 'api/Auth/Register', argument);
     }
 
     public login(argument: object): Observable<UserModel> {
-        return this.httpClient.post<UserModel>(this.baseUrl + 'api/auth/Login', argument);
+        return this.httpClient.post<UserModel>(this.baseUrl + 'api/Auth/Login', argument);
     }
 
     get getLocalUserData(): Observable<UserModel> {

@@ -22,7 +22,7 @@ export class HeaderComponent extends SpeechService implements OnInit {
     private initLinks(): void {
         this.links = [
             { name: 'Home', route: '/home' },
-            { name: 'Categories' },
+            { name: 'Categories', route: '/category' },
             { name: 'Offers' },
             { name: 'Contacts' }
         ];

@@ -1,9 +1,54 @@
+<app-header></app-header>
 <div class="container">
   <span class="category-header">Categories</span>
   <div class="category-content">
-    <a *ngFor="let category of categories" (mouseover)="textElements($event)">{{
-      category.name
-    }}</a>
+    <a
+      *ngFor="let category of categories"
+      (click)="getProducts(category.id)"
+      >{{ category.name }}</a
+    >
   </div>
 </div>
->
+
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let product of products">
+        <div class="card mb-4 box-shadow">
+          <img
+            class="card-img-top"
+            src="../../../../../assets/images/user.png"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <p class="card-text">
+              {{ product.description }}
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary"
+                [routerLink]="'product/' + product.id"
+                >
+                  Details
+                </button>
+              </div>
+              <small class="text-muted"> Price: {{ product.price }} lei</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="d-flex justify-content-center">
+  <pagination
+    [boundaryLinks]="true"
+    [totalItems]="77"
+    previousText="&lsaquo;"
+    nextText="&rsaquo;"
+    firstText="&laquo;"
+    lastText="&raquo;"
+  >
+  </pagination>
+</div>
+<router-outlet></router-outlet>
