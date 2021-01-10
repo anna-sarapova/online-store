@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryModel } from 'src/app/core/models/category.modes';
+import { ActivatedRoute } from '@angular/router';
+import { ProductModel } from 'src/app/core/models/product.modes';
 import { ProductService } from 'src/app/core/services/product.service';
 
 @Component({
@@ -8,21 +9,16 @@ import { ProductService } from 'src/app/core/services/product.service';
   styleUrls: ['./phones.component.scss']
 })
 export class PhonesComponent implements OnInit {
-  public categories: CategoryModel[];
-
-  constructor( private productservice: ProductService) {
+  product: ProductModel;
+  constructor(private productService: ProductService,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.getCategories();
-  }
-
-  public getCategories(): CategoryModel[] {
-    this.productservice.loadCategories().subscribe(result => {
-      this.categories = result;
-      return result;
+    this.productService.getProductById(this.route.snapshot.paramMap.get('id')).subscribe(result => {
+      this.product = result;
+      console.log(this.product);
     });
-    return [];
   }
 
 }
