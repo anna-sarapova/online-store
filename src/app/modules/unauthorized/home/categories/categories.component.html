@@ -1,12 +1,9 @@
 <app-header></app-header>
 <div class="container">
-  <span class="category-header">Categories</span>
   <div class="category-content">
-    <a
-      *ngFor="let category of categories"
-      (click)="getProducts(category.id)"
-      >{{ category.name }}</a
-    >
+    <a *ngFor="let category of categories" (click)="getProducts(category.id)">{{
+      category.name
+    }}</a>
   </div>
 </div>
 
@@ -26,8 +23,10 @@
             </p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary"
-                [routerLink]="'product/' + product.id"
+                <button
+                  type="button"
+                  class="btn btn-sm btn-outline-secondary"
+                  [routerLink]="'product/' + product.id"
                 >
                   Details
                 </button>
@@ -43,7 +42,9 @@
 <div class="d-flex justify-content-center">
   <pagination
     [boundaryLinks]="true"
-    [totalItems]="77"
+    [totalItems]="Pagination.totalItems"
+    [itemsPerPage]="Pagination.itemsPerPage"
+    (pageChanged)="pageChanged($event)"
     previousText="&lsaquo;"
     nextText="&rsaquo;"
     firstText="&laquo;"
