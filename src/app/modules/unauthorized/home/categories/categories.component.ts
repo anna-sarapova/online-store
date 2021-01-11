@@ -5,6 +5,7 @@ import { ProductModel } from 'src/app/core/models/product.modes';
 import { CategoryService } from 'src/app/core/services/category.service';
 import { SpeechService } from 'src/app/core/services/speech.service';
 import { GetProductByCategoryModel } from 'src/app/core/models/GetRequestModels/getProductsByCategoryID.model';
+import { PaginatedResult, Pagination } from 'src/app/core/models/Pagination';
 
 @Component({
   selector: 'app-categories',
@@ -16,6 +17,10 @@ export class CategoriesComponent extends SpeechService implements OnInit {
   public categories: CategoryModel[];
   public links: LinkModel[];
   public products: ProductModel[];
+  public Pagination: Pagination;
+  public pageNumber = 1;
+  public pageSize = 5;
+  public categoryId = -1;
 
   constructor(private categoryService: CategoryService) {
     super();
@@ -24,6 +29,7 @@ export class CategoriesComponent extends SpeechService implements OnInit {
   ngOnInit(): void {
     this.getCategories();
     this.initLinks();
+    this.getProducts(-1);
   }
 
 
@@ -44,17 +50,22 @@ export class CategoriesComponent extends SpeechService implements OnInit {
   }
 
   // tslint:disable-next-line:ban-types
-  public getProducts(id: number): ProductModel[] {
-    const params: GetProductByCategoryModel = {
-        categoryId: id,
-        page: 1
-    };
-    this.categoryService.loadProductsByCategoryId(params).subscribe(result => {
-      this.products = result;
-      console.log(this.products, 'products');
-      return result;
+  public getProducts(id: number){
+    this.categoryId = id;
+    this.categoryService.loadProductsByCategoryId(this.pageNumber, this.pageSize, this.categoryId)
+    .subscribe((res: PaginatedResult<ProductModel[]>) => {
+      this.products = res.result;
+      this.Pagination = res.pagination;
+    },
+    res => {
+      console.log(res);
     });
-    return [];
+  }
+
+  pageChanged(event: any): void {
+    console.log(event);
+    this.pageNumber = event.page;
+    this.getProducts(this.categoryId);
   }
 
 }
