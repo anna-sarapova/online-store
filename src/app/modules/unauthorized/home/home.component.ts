@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Hotkey, HotkeysService } from 'angular2-hotkeys';
+
 
 @Component({
   selector: 'app-home',
@@ -10,7 +10,6 @@ import { Hotkey, HotkeysService } from 'angular2-hotkeys';
 export class HomeComponent implements OnInit {
 
   constructor() {}
-  
   ngOnInit(): void {
   }
 
