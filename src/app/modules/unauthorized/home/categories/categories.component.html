@@ -14,7 +14,7 @@
         <div class="card mb-4 box-shadow">
           <img
             class="card-img-top"
-            src="../../../../../assets/images/user.png"
+            [src]="product.image ? product.image : '../../../../../assets/images/user.png'"
             (mouseover)="textImage($event)"
             alt="{{product.name}}"
           />

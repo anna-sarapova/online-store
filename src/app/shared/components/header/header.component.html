@@ -1,7 +1,7 @@
 <header>
     <div class="container h-100">
         <div class="row no-gutters h-100">
-            <div class="links col-6">
+            <div class="links col-4">
                 <div class="row no-gutters justify-content-between h-100">
                     <div class="col-2">
                         <img (mouseover)="textImage($event)" routerLink="../home" src="./assets/images/logo.png"
@@ -16,24 +16,24 @@
                 </div>
             </div>
 
-            <div class="utility col-6">
-                <div class="row no-gutters justify-content-end h-100">
+            <div class="utility col-8">
+                <div class="row no-gutters justify-content-end m-10px">
                     <div class="search">
                         <img src="./assets/images/loupe.svg" class="imgsrc" alt="bag">
                         <input (mouseover)="textInput($event)" type="text" placeholder="Search">
                     </div>
 
                     <div class="cart">
-                        <img routerLink="/home/cart" src="./assets/images/bag.svg" alt="bag">
                         <span (mouseover)="textElements($event)">Cart</span>
+                        <img routerLink="/home/cart" src="./assets/images/bag.svg" alt="bag">
                     </div>
-                    <div *ngIf="!(authService.IsAuthenticated() | async)">
+                    <div *ngIf="!(authService.IsAuthenticated() | async)" class="signin-container">
 
                         <a (mouseover)="textElements($event)" class="sign" routerLink="../auth/login">Sign In</a>
                         <a (mouseover)="textElements($event)" class="sign" routerLink="../auth/register">Sign Up</a>
 
                     </div>
-                    <div *ngIf="(authService.IsAuthenticated() | async)" class="lgO">
+                    <div *ngIf="(authService.IsAuthenticated() | async)" class="lgO ml-2">
                         <p (mouseover)="textElements($event)" *ngIf="(authService.getLocalUserData | async) as userData">{{userData.email}}</p>
                         <button (mouseover)="textElements($event)" (click)="onLogOut()">Log Out</button>
                     </div>

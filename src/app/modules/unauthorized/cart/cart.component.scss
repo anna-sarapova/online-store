@@ -25,7 +25,6 @@
 
     .description-block {
       width: 50%;
-      height: 150px;
       display: flex;
       flex-direction: column;
       padding: 5px;
@@ -164,4 +163,8 @@
 
     }
   }
+}
+
+.form-block{
+  height: 400px;
 }

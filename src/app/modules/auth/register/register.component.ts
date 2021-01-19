@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../../core/services/auth.service";
 import {Subscription} from "rxjs";
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-register',
@@ -13,7 +14,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
     private registerSubscription: Subscription;
 
     constructor(private formBuilder: FormBuilder,
-                private authService: AuthService) {
+                private authService: AuthService,
+                private router: Router) {
         this.createRegisterForm();
     }
 
@@ -31,6 +33,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
         this.registerSubscription = this.authService.register(this.registerFormGroup.value).subscribe(() => {
             console.log('success');
         }, error => console.log(error));
+        this.router.navigate(['/auth/login']);
     }
 
     ngOnDestroy() {
