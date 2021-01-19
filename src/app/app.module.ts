@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { HotkeyModule } from 'angular2-hotkeys';
 
 @NgModule({
     declarations: [
@@ -16,11 +18,13 @@ import { FormsModule } from '@angular/forms';
         HttpClientModule,
         AppRoutingModule,
         BrowserAnimationsModule,
-        FormsModule
+        FormsModule,
+        CommonModule,
+        HotkeyModule.forRoot()
     ],
     providers: [
     ],
     bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+
+export class AppModule {}
