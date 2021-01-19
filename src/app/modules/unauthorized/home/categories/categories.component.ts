@@ -63,7 +63,6 @@ export class CategoriesComponent extends SpeechService implements OnInit {
   }
 
   pageChanged(event: any): void {
-    console.log(event);
     this.pageNumber = event.page;
     this.getProducts(this.categoryId);
   }
