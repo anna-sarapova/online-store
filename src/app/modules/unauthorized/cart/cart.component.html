@@ -1,1 +1,78 @@
-<p>cart works!</p>
+<div *ngIf="chart; else MyCustomTemplate">
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <h2>Your Cart</h2>
+      <div class="row">
+        <div class="col-6">
+          <div *ngFor="let order of chart.orders">
+            <div class="product-container">
+              <img
+                [src]="
+                  order.product.imageUpload
+                    ? order.product.imageUpload
+                    : '../../../../assets/images/user.png'
+                "
+              />
+              <div class="description-block">
+                <span class="title">{{ order.product.name }}</span>
+                <div class="quantity-block">
+                  <button class="btn" (click)="decreaseOrder(order.productId, order.quantity, order.id)">-</button>
+                  <div class="quantity">
+                    <p>{{ order.quantity }}</p>
+                  </div>
+                  <button class="btn" (click)="increaseOrder(order.productId, order.quantity)">+</button>
+                  <p class="price">{{ order.product.price }}$</p>
+                </div>
+              </div>
+              <button class="btn delete" (click)="deleteOrder(order.id)">X</button>
+            </div>
+          </div>
+        </div>
+        <form class="col-6">
+          <div class="form-group row">
+            <div class="form-container align-self-end">
+              <p>
+                Total:&nbsp;<strong>{{ chart.total }} &nbsp;$</strong>
+              </p>
+            </div>
+            <div class="form-container">
+              <p>Delivery &nbsp;<strong>free</strong></p>
+            </div>
+          </div>
+          <p>Fill the fields below</p>
+          <div class="input-container row">
+            <input class="col-5" placeholder="Name" />
+            <input class="col-5" placeholder="Surname" />
+            <input class="col-5" placeholder="Phone number" />
+            <input class="col-5" placeholder="Email" />
+          </div>
+          <div class="col-11 row">
+            <p>Payment method:</p>
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" class="btn">Cash</button>
+              <button type="button" class="btn">Card</button>
+            </div>
+          </div>
+          <div class="col-11 mt-3 row">
+            <p>Delivery address:</p>
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" class="btn">Home</button>
+              <button type="button" class="btn">From shop</button>
+            </div>
+          </div>
+          <div class="col-11 row terms mt-3">
+            <input type="checkbox" id="agree1" name="agree1" />
+            <small for="agree1" class="ml-1">
+              I agree with Terms and Conditions</small
+            ><br />
+            <button class="btn align-self-end ml-5">Buy</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #MyCustomTemplate>
+  <h2>Pleaase Log in</h2>
+</ng-template>

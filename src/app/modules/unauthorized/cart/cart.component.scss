@@ -1,0 +1,167 @@
+.container {
+  max-width: 1250px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  padding: 20px 50px;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 30px;
+
+  .product-container {
+    background-color: #c4c4c4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin: 20px 0;
+    position: relative;
+
+    img {
+      width: 200px;
+      height: 150px;
+    }
+
+    .description-block {
+      width: 50%;
+      height: 150px;
+      display: flex;
+      flex-direction: column;
+      padding: 5px;
+      .title {
+        font-weight: bold;
+        font-size: 25px;
+      }
+
+      .line {
+        margin: 0;
+        width: 100%;
+        color: black;
+      }
+
+      .quantity-block {
+        display: flex;
+        padding-top: 30px;
+        .quantity {
+          padding: 0 10px;
+          p {
+            background-color: white;
+          }
+        }
+
+        .price {
+          padding-left: 10px;
+        }
+        .btn {
+          text-align: center;
+          border-radius: 50%;
+          width: 34px;
+          height: 34px;
+          background-color: orange;
+          font-weight: bold;
+          padding: 2px;
+
+          &:hover {
+            transform: scale(1.03);
+            transition-duration: 0.3s;
+            cursor: pointer;
+            background-color: rgb(255, 102, 0);
+          }
+        }
+      }
+    }
+
+    .delete {
+      background-color: rgb(185, 99, 99);
+      border-radius: 50%;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+
+      &:hover {
+        transform: scale(1.03);
+        transition-duration: 0.3s;
+        cursor: pointer;
+        background-color: red;
+      }
+    }
+  }
+
+  form {
+    background-color: #e9e6e6;
+    padding: 30px;
+
+    .form-container {
+      background-color: orange;
+      border-radius: 20px;
+      padding: 0 20px;
+      vertical-align: middle;
+      margin: 0 auto;
+      p {
+        margin: 5px 0;
+      }
+    }
+
+    .input-container {
+      margin: 0 auto;
+      justify-content: space-between;
+
+      input {
+        margin: 10px 0;
+        border: none;
+        border-radius: 30px;
+        padding: 5px 20px;
+
+        &:focus {
+            outline: none;
+        }
+      }
+    }
+
+    .row {
+      p {
+        margin: 0;
+      }
+      .btn-group {
+        .btn {
+          text-align: center;
+          border-radius: 20px;
+          background-color: #c4c4c4;
+          font-weight: bold;
+          padding: 5px 10px;
+          margin: 0 20px;
+
+          &:hover {
+            transform: scale(1.03);
+            transition-duration: 0.3s;
+            cursor: pointer;
+            background-color: rgb(59, 59, 58);
+          }
+          &:focus {
+            background-color: orange;
+          }
+        }
+      }
+    }
+
+    .terms{
+        align-items: center;
+        .btn {
+            text-align: center;
+            border-radius: 20px;
+            background-color: orange;
+            font-weight: bold;
+            padding: 5px 20px;
+  
+            &:hover {
+              transform: scale(1.03);
+              transition-duration: 0.3s;
+              cursor: pointer;
+              background-color: rgb(255, 102, 0);
+            }
+        }
+
+    }
+  }
+}

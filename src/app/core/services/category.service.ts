@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { CategoryModel } from '../models/category.modes';
-import { GetProductByCategoryModel } from '../models/GetRequestModels/getProductsByCategoryID.model';
 import { PaginatedResult } from '../models/Pagination';
 import { ProductModel } from '../models/product.modes';
 

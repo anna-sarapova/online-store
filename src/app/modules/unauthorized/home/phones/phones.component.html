@@ -4,14 +4,14 @@
       <img src="../../../../../assets/images/user.png" />
     </div>
     <div class="description-block">
-      <span class="title">{{ product.name }}</span>
+      <span class="title">{{ product?.name }}</span>
       <div class="description-block">
         <h3>Description</h3>
-        <p>{{ product.description }}</p>
+        <p>{{ product?.description }}</p>
       </div>
       <div class="add-to-cart-block">
-        <p>Price: {{ product.price }}$</p>
-        <button class="btn">Add to cart</button>
+        <p>Price: {{ product?.price }}$</p>
+        <button class="btn" (click)="createOrder()" [disabled]="!userId">Add to cart</button>
       </div>
       <button [routerLink]="''" class="btn">Return to home</button>
     </div>
